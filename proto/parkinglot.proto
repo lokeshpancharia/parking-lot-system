@@ -1,17 +1,15 @@
 syntax = "proto3";
-
 package parkinglot;
 option go_package = "github.com/lokeshpancharia/parking-lot-system/proto";
 
 // Service definition for Parking Lot operations
 service ParkingLotService {
- 
   // Park a vehicle in the parking lot
   rpc ParkVehicle(ParkVehicleRequest) returns (ParkVehicleResponse);
- 
+
   // Remove a vehicle from the parking lot
   rpc RemoveVehicle(RemoveVehicleRequest) returns (RemoveVehicleResponse);
- 
+
   // Get the number of available parking spots
   rpc GetAvailableSpots(GetAvailableSpotsRequest) returns (GetAvailableSpotsResponse);
 }
@@ -30,18 +28,20 @@ message ParkVehicleRequest {
 // Response message for parking a vehicle
 message ParkVehicleResponse {
   bool success = 1; // Indicates if the parking was successful
-  string message = 2; // Additional message or error description
+  string ticket_id = 2; // Ticket ID for the parked vehicle
+  string message = 3; // Additional message or error description
 }
 
 // Request message for removing a vehicle
 message RemoveVehicleRequest {
-  string license_plate = 1; // License plate of the vehicle to be removed
+  string ticket_id = 1; // Ticket ID of the vehicle to be removed
 }
 
 // Response message for removing a vehicle
 message RemoveVehicleResponse {
   bool success = 1; // Indicates if the removal was successful
   string message = 2; // Additional message or error description
+  float parking_fees = 3; // Parking fees for the vehicle
 }
 
 // Request message for getting available spots
