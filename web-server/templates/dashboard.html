@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+</head>
+<body>
+    <h1>Dashboard</h1>
+
+    <h2>Park Vehicle</h2>
+    <form action="/park" method="post">
+        <label for="license_plate">License Plate:</label>
+        <input type="text" id="license_plate" name="license_plate"><br>
+        <label for="vehicle_type">Vehicle Type:</label>
+        <select id="vehicle_type" name="vehicle_type">
+            <option value="Motorcycle">Motorcycle</option>
+            <option value="Car">Car</option>
+            <option value="Truck">Truck</option>
+        </select><br>
+        <button type="submit">Park</button>
+    </form>
+
+    <h2>Remove Vehicle</h2>
+    <form action="/remove" method="post">
+        <label for="ticket_id">Ticket ID:</label>
+        <input type="text" id="ticket_id" name="ticket_id"><br>
+        <button type="submit">Remove</button>
+    </form>
+
+    <h2>Available Spots</h2>
+    <button onclick="fetchAvailableSpots()">Get Available Spots</button>
+    <p id="available-spots"></p>
+
+    <script>
+        function fetchAvailableSpots() {
+            fetch('/available-spots')
+                .then(response => response.json())
+                .then(data => {
+                    document.getElementById('available-spots').innerText = "Available spots: " + data.available_spots;
+                });
+        }
+    </script>
+</body>
+</html>
