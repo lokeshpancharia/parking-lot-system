@@ -19,9 +19,9 @@ import (
 const _ = grpc.SupportPackageIsVersion8
 
 const (
-	ParkingLotService_ParkVehicle_FullMethodName       = "/parkinglot.ParkingLotService/ParkVehicle"
-	ParkingLotService_RemoveVehicle_FullMethodName     = "/parkinglot.ParkingLotService/RemoveVehicle"
-	ParkingLotService_GetAvailableSpots_FullMethodName = "/parkinglot.ParkingLotService/GetAvailableSpots"
+	ParkingLotService_ParkVehicle_FullMethodName       = "/parking_lot_system.ParkingLotService/ParkVehicle"
+	ParkingLotService_RemoveVehicle_FullMethodName     = "/parking_lot_system.ParkingLotService/RemoveVehicle"
+	ParkingLotService_GetAvailableSpots_FullMethodName = "/parking_lot_system.ParkingLotService/GetAvailableSpots"
 )
 
 // ParkingLotServiceClient is the client API for ParkingLotService service.
@@ -175,7 +175,7 @@ func _ParkingLotService_GetAvailableSpots_Handler(srv interface{}, ctx context.C
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
 var ParkingLotService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "parkinglot.ParkingLotService",
+	ServiceName: "parking_lot_system.ParkingLotService",
 	HandlerType: (*ParkingLotServiceServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{

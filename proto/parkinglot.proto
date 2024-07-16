@@ -1,5 +1,7 @@
 syntax = "proto3";
-package parkinglot;
+
+package parking_lot_system;
+
 option go_package = "github.com/lokeshpancharia/parking-lot-system/proto";
 
 // Service definition for Parking Lot operations
