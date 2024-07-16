@@ -256,7 +256,7 @@ func (s *server) RemoveVehicle(ctx context.Context, req *pb.RemoveVehicleRequest
 	return &pb.RemoveVehicleResponse{
 		Success:     true,
 		Message:     "Vehicle removed successfully",
-		ParkingFees: ticket.ParkingFees,
+		ParkingFees: float32(ticket.ParkingFees),
 	}, nil
 }
 
